@@ -1,4 +1,4 @@
-# BEGIN: lint-install tinkerbell/ipxedust
+# BEGIN: lint-install mpanduru/ipxedust
 # http://github.com/tinkerbell/lint-install
 
 .PHONY: lint
@@ -72,4 +72,4 @@ _lint: $(LINTERS)
 .PHONY: fix $(FIXERS)
 fix: $(FIXERS)
 
-# END: lint-install tinkerbell/ipxedust
+# END: lint-install mpanduru/ipxedust

@@ -1,7 +1,7 @@
-[![Test and Build](https://github.com/tinkerbell/ipxedust/actions/workflows/ci.yaml/badge.svg)](https://github.com/tinkerbell/ipxedust/actions/workflows/ci.yaml)
-[![codecov](https://codecov.io/gh/tinkerbell/ipxedust/branch/main/graph/badge.svg)](https://codecov.io/gh/tinkerbell/ipxedust)
-[![Go Report Card](https://goreportcard.com/badge/github.com/tinkerbell/ipxedust)](https://goreportcard.com/report/github.com/tinkerbell/ipxedust)
-[![Go Reference](https://pkg.go.dev/badge/github.com/tinkerbell/ipxedust.svg)](https://pkg.go.dev/github.com/tinkerbell/ipxedust)
+[![Test and Build](https://github.com/mpanduru/ipxedust/actions/workflows/ci.yaml/badge.svg)](https://github.com/mpanduru/ipxedust/actions/workflows/ci.yaml)
+[![codecov](https://codecov.io/gh/mpanduru/ipxedust/branch/main/graph/badge.svg)](https://codecov.io/gh/mpanduru/ipxedust)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mpanduru/ipxedust)](https://goreportcard.com/report/github.com/mpanduru/ipxedust)
+[![Go Reference](https://pkg.go.dev/badge/github.com/mpanduru/ipxedust.svg)](https://pkg.go.dev/github.com/mpanduru/ipxedust)
 
 # ipxedust
 

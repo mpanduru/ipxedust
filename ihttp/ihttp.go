@@ -15,7 +15,7 @@ import (
 	"time"
 
 	"github.com/go-logr/logr"
-	"github.com/tinkerbell/ipxedust/binary"
+	"github.com/mpanduru/ipxedust/binary"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
