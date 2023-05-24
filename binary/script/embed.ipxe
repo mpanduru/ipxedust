@@ -13,13 +13,19 @@ prompt --key 0x02 --timeout 2000 Press Ctrl-B for the iPXE command line... && sh
 # This is possible because the DHCP options from the original vendor PXE DHCP request
 # are available to chainloaded iPXE binaries. See https://github.com/ipxe/ipxe/issues/188
 set vlan-id ${43.116:string}
+# Additional logs
+echo ${vlan-id}
 isset ${vlan-id} && goto boot-with-vlan ||
 
 :autoboot
+# Additional logs
+echo autobooting
 autoboot
 
 :boot-with-vlan
 set idx:int32 0
+# Additional logs
+echo booting with vlan on interface ${idx}
 # Find the interface that is configured with an IP, this will be the iPXE auto created vlan interface.
 :loop isset ${net${idx}-${vlan-id}/ip} && goto loop_done ||
   iseq ${idx} 50 && goto error ||
