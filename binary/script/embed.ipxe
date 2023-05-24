@@ -17,6 +17,17 @@ set vlan-id ${43.116:string}
 echo ${vlan-id}
 isset ${vlan-id} && goto boot-with-vlan ||
 
+:boot-by-ipv4
+set idx:int32 0
+:loop-ipv4
+# Additional logs
+echo checking if interface net${idx} is configured
+isset ${net${idx}/ip} && goto loop-ipv4-done || iseq ${idx} 50 && goto autoboot || inc idx && goto loop-ipv4
+
+:loop-ipv4-done
+echo Booting from net${idx}...
+autoboot net${idx}
+
 :autoboot
 # Additional logs
 echo autobooting
@@ -24,8 +35,6 @@ autoboot
 
 :boot-with-vlan
 set idx:int32 0
-# Additional logs
-echo booting with vlan on interface ${idx}
 # Find the interface that is configured with an IP, this will be the iPXE auto created vlan interface.
 :loop isset ${net${idx}-${vlan-id}/ip} && goto loop_done ||
   iseq ${idx} 50 && goto error ||
