@@ -1,7 +1,7 @@
 #!ipxe
 
 set user-class Tinkerbell
-echo Welcome to Neverland this is just a test!
+echo Welcome to Neverland!
 
 # Allow the operator to drop to a shell
 prompt --key 0x02 --timeout 2000 Press Ctrl-B for the iPXE command line... && shell ||
@@ -13,18 +13,14 @@ prompt --key 0x02 --timeout 2000 Press Ctrl-B for the iPXE command line... && sh
 # This is possible because the DHCP options from the original vendor PXE DHCP request
 # are available to chainloaded iPXE binaries. See https://github.com/ipxe/ipxe/issues/188
 set vlan-id ${43.116:string}
-# Additional logs
-echo ${vlan-id}
 isset ${vlan-id} && goto boot-with-vlan ||
 
-:boot-by-ipv4
+:boot-without-vlan
 set idx:int32 0
-:loop-ipv4
-# Additional logs
-echo checking if interface net${idx} is configured
-isset ${net${idx}/ip} && goto loop-ipv4-done || iseq ${idx} 50 && goto autoboot || inc idx && goto loop-ipv4
+:interfaces-loop
+isset ${net${idx}/ip} && goto interfaces-loop-done || iseq ${idx} 50 && goto autoboot || inc idx && interfaces-loop
 
-:loop-ipv4-done
+:interfaces-loop-done
 echo Booting from net${idx}...
 autoboot net${idx}
 
