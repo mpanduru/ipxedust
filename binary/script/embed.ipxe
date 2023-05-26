@@ -18,7 +18,7 @@ isset ${vlan-id} && goto boot-with-vlan ||
 :boot-without-vlan
 set idx:int32 0
 :interfaces-loop
-isset ${net${idx}/ip} && goto interfaces-loop-done || iseq ${idx} 50 && goto autoboot || inc idx && interfaces-loop
+isset ${net${idx}/ip} && goto interfaces-loop-done || iseq ${idx} 50 && goto autoboot || inc idx && goto interfaces-loop
 
 :interfaces-loop-done
 echo Booting from net${idx}...
